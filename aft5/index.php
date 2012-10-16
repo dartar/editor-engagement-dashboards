@@ -31,7 +31,6 @@ switch ($_GET['c'])
 <div id="header_fixed">
 <h1>Article Feedback v5 dashboard</h1>
 <?php echo $filter; ?>
-<h3 class="streamlink"><a href="./stream/<?php echo $p; ?>" style="text-decoration:none">&#x25B8 stream</a></h3>
 </div>
 <div id="wrapper_scrollable">
 <p class="small">
@@ -59,6 +58,9 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'_cum.csv')
 <div id="graphdiv_daily_unique_articles" style="width:900px; height:300px;"></div>
 <p class="small">Unique articles commented data (aggregate): <a href="aft5<?php echo $c; ?>_daily_unique_articles.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'_daily_unique_articles.csv')); ?></p>
+
+<h2 class="archive">Archive</h2>
+<p class="small">The following dashboards are kept for historical interest</p>
 
 <!-- Daily posts (by design) -->
 <h3>Daily feedback volume (by design)</h3>

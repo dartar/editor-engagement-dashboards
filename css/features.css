@@ -63,6 +63,14 @@ h3, h3 a{
 	font-weight:300;
 }
 
+h2.archive {
+	font-size: 180%;
+	color: #666;
+	margin-top:8em;
+	border-top: 1px solid #CCC;
+	padding-top: 1em;
+}
+
 h2, .small{
 	font-weight:300; 
 	font-size: 70%; 
