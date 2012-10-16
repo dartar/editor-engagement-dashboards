@@ -44,36 +44,9 @@ $s = callAPI('en', 'query', $pars);
 $st = array_keys($s['query']['pages']);
 $page_id = trim($st[0]);
 
-//toggle query
-switch($_GET['o'])
-{
-	case '1':
-	$sql = 'SELECT DATE(af_created) AS date, COUNT(DISTINCT f.af_id) AS f, SUM(CASE WHEN a.aa_field_id = 2 THEN 1 ELSE 0 END) AS ft FROM aft_article_feedback f JOIN aft_article_answer a ON f.af_id = a.aa_feedback_id WHERE f.af_page_id = "'.$page_id.'" AND f.af_bucket_id="1" GROUP BY LEFT(f.af_created,8);';
-	$sql1 = 'SELECT date,bucket,link,found,text FROM (SELECT DATE(f.af_created) AS date, f.af_bucket_id AS bucket, a.aa_feedback_id AS id, f.af_link_id AS link,a.aa_response_boolean AS found FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE f.af_bucket_id = 1 AND a.aa_field_id = 1 AND f.af_page_id = "'.$page_id.'") AS aab LEFT JOIN (SELECT a.aa_feedback_id AS id, a.aa_response_text AS text FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE f.af_bucket_id = 1 AND a.aa_field_id = 2) AS aat ON aab.id = aat.id ORDER BY date ASC;';
-	$options = '<input type="radio" name="o" value="" />all options <input type="radio" name="o" value="1" checked="checked" />option 1 <input type="radio" name="o" value="2" />option 2 <input type="radio" name="o" value="3" />option 3';
-	$headers= array('timestamp', 'bucket','link','found','text');
-	break;
-
-	case '2':
-	$sql = 'SELECT DATE(af_created) AS date, COUNT(DISTINCT f.af_id) AS f, SUM(CASE WHEN a.aa_field_id = 4 THEN 1 ELSE 0 END) AS ft FROM aft_article_feedback f JOIN aft_article_answer a ON f.af_id = a.aa_feedback_id WHERE af_page_id = "'.$page_id.'" AND af_bucket_id="2" GROUP BY LEFT(af_created,8);';
-	$sql1 = 'SELECT date,bucket,link,type,text FROM (SELECT DATE(f.af_created) AS date, f.af_bucket_id AS bucket, a.aa_feedback_id AS id, f.af_link_id AS link, a.aa_response_option_id AS type FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE f.af_bucket_id = 2 AND a.aa_field_id = 3 AND f.af_page_id = "'.$page_id.'") AS aab LEFT JOIN (SELECT a.aa_feedback_id AS id, a.aa_response_text AS text FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE f.af_bucket_id = 2 AND a.aa_field_id = 4) AS aat ON aab.id = aat.id ORDER BY date ASC;';
-	$options = '<input type="radio" name="o" value="" />all options <input type="radio" name="o" value="1" />option 1 <input type="radio" name="o" value="2" checked="checked" />option 2 <input type="radio" name="o" value="3" />option 3';
-	$headers= array('timestamp', 'bucket','link','type','text');
-	break;
-
-	case '3':
-	$sql = 'SELECT DATE(af_created) AS date, COUNT(DISTINCT f.af_id) AS f, SUM(CASE WHEN a.aa_field_id = 6 THEN 1 ELSE 0 END) AS ft FROM aft_article_feedback f JOIN aft_article_answer a ON f.af_id = a.aa_feedback_id WHERE af_page_id = "'.$page_id.'" AND af_bucket_id="3" GROUP BY LEFT(af_created,8);';
-	$sql1 = 'SELECT date,bucket,link,rating,text FROM (SELECT DATE(f.af_created) AS date, f.af_bucket_id AS bucket, a.aa_feedback_id AS id, f.af_link_id AS link, a.aa_response_rating AS rating FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE f.af_bucket_id = 3 AND a.aa_field_id = 5 AND f.af_page_id = "'.$page_id.'") AS aab LEFT JOIN (SELECT a.aa_feedback_id AS id, a.aa_response_text AS text FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE f.af_bucket_id = 3 AND a.aa_field_id = 6) AS aat ON aab.id = aat.id ORDER BY date ASC;';
-	$options = '<input type="radio" name="o" value="" />all options <input type="radio" name="o" value="1" />option 1 <input type="radio" name="o" value="2" />option 2 <input type="radio" name="o" value="3" checked="checked" />option 3';
-	$headers= array('timestamp','bucket','link','rating','text');
-	break;
-
-	default:
-	$sql = 'SELECT DATE(f.af_created) AS date, COUNT(DISTINCT f.af_id) AS f, SUM(CASE WHEN a.aa_field_id in (2,4,6) THEN 1 ELSE 0 END) AS ft FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE af_page_id = "'.$page_id.'" GROUP BY LEFT(af_created,8);';
-	$sql1 = 'SELECT DATE(f.af_created) AS date, f.af_bucket_id AS bucket, f.af_link_id AS link, a.aa_response_text AS text FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE a.aa_field_id IN (2,4,6) AND f.af_page_id = "'.$page_id.'" ORDER BY date ASC';	
-	$options = '<input type="radio" name="o" value="" checked="checked"/>all options <input type="radio" name="o" value="1" />option 1 <input type="radio" name="o" value="2" />option 2 <input type="radio" name="o" value="3" />option 3';
-	$headers= array('timestamp','bucket','link','text');
-}
+$sql = 'SELECT DATE(f.af_created) AS date, COUNT(DISTINCT f.af_id) AS f, SUM(CASE WHEN a.aa_field_id in (2,4,6) THEN 1 ELSE 0 END) AS ft FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE af_page_id = "'.$page_id.'" GROUP BY LEFT(af_created,8);';
+$sql1 = 'SELECT DATE(f.af_created) AS date, f.af_bucket_id AS bucket, f.af_link_id AS link, a.aa_response_text AS text FROM aft_article_answer a JOIN aft_article_feedback f ON a.aa_feedback_id = f.af_id WHERE a.aa_field_id IN (2,4,6) AND f.af_page_id = "'.$page_id.'" ORDER BY date ASC';	
+$headers= array('timestamp','bucket','link','text');
 
 // get daily feedback
 $result = mysql_query($sql, $db);
@@ -130,7 +103,6 @@ else
 <form method="GET">
 <fieldset><legend>Article Title</legend>
 <input type="text" name="p" id="title" value="$page_title" />
-$options
 <input type="submit" />
 </fieldset>
 </form>
@@ -143,9 +115,6 @@ EOF;
 
 if (count($r) >0)
 {
-
-	//temporarily disabling feedback
-	$t .= '<p><center>The feedback stream is temporarily disabled, apologies for the inconvenience.</center></p>'."\n";
 
 	/*
 	$result1 = mysql_query($sql1, $db);
@@ -178,7 +147,7 @@ if (count($r) >0)
 	echo <<<EOF
 
 <!-- page_id: $page_id -->
-<h3><a style="text-decoration:none" href="$json_link">[json]</a> <a href="$csv_link" style="text-decoration:none">[csv]</a> <a style="text-decoration:none" href="#stream">[stream]</a></h3>
+<h3><a style="text-decoration:none" href="$json_link">[json]</a> <a href="$csv_link" style="text-decoration:none">[csv]</a></h3>
 <!--
 <p class="small">
 <strong>Hover</strong> over the graph to  display values for specific dates<br />
