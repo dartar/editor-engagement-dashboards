@@ -23,12 +23,6 @@ Use the <strong>input box</strong> to adjust the moving average span
 <strong class="boxed">C</strong>: global deployment to enwiki</p>
 <p class="small">Daily article ratings data: <a href="d.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d.csv')); ?></p>
-<h3>Ratings per page view</h3>
-<div id="graphdiv2"></div>
-<p class="small">Ratings per page view data: <a href="d2.csv">csv</a><br />
-Daily page view data: <a href="http://stats.wikimedia.org/archive/PageViewsPerDayAll.csv.zip">zip</a> [2.2Mb]<br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d2.csv')); ?></p>
-</div>
 <script type="text/javascript">
    var labels = [
         {
@@ -57,35 +51,6 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d2.csv')); ?></p>
     {
       ylabel: 'Unique ratings',
       legend: 'always',
-      axisLabelFontSize: 12,
-      rollPeriod: 1,
-      showRoller: true,
-      labelsKMB: true,
-      labelsDivWidth: 200,
-      labelsDivStyles: {
-        'backgroundColor': 'transparent',
-         'font-weight': 300,
-         'text-align': 'left'
-      },
-      labelsSeparateLines: true,
-      showRangeSelector: false,
-      rangeSelectorHeight: 30,
-      rangeSelectorPlotStrokeColor: 'rgba(50,50,50,0.3)',
-      rangeSelectorPlotFillColor: 'rgba(50,50,50,0.1)',
-      drawCallback: function(g, is_initial) {
-            if (!is_initial) return;
-            g.setAnnotations(labels);
-          }
-    }
-  );
-
-  g4 = new Dygraph(
-    document.getElementById('graphdiv2'),
-    "./d2.csv",
-    {
-      logscale : false,
-      legend: 'always',
-      colors: ["rgba(200,50,50,0.6)"],
       axisLabelFontSize: 12,
       rollPeriod: 1,
       showRoller: true,
