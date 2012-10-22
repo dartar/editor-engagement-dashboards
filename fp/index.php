@@ -89,6 +89,14 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_cum_perc.
 <p class="small">Unique daily articles with feedback moderated data: <a href="fp_logging_by_article_unique.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_by_article_unique.csv')); ?></p>
 
+<!-- Unique articles moderated/commented ratio -->
+<h3>Proportion of unique articles moderated/commented (%)</h3>
+<p class="small">This plot represents the proportion of articles with at least one manual moderation action on a given data over the number of articles with at least one new comment on that 
+day. Note that moderation actions and new posts can happen on entirely distinct sets of articles</p>
+<div id="fp_logging_daily_article_moderation_perc" style="width:900px; height:300px;"></div>
+<p class="small">Articles moderated vs commented (%): <a href="fp_logging_daily_article_moderation_perc.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_article_moderation_perc.csv')); ?></p>
+
 <!-- Unique users  -->
 <h3>Unique daily moderators by category</h3>
 <div id="fp_logging_by_user_type_unique" style="width:900px; height:300px;"></div>
@@ -358,6 +366,32 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_auto.csv'
          'font-weight': 300,
          'text-align': 'left'
       },
+      labelsSeparateLines: true,
+      showRangeSelector: false,
+      drawCallback: function(g, is_initial) {
+            if (!is_initial) return;
+            g.setAnnotations(labels_g0);
+          }
+    }
+  );
+
+  fp_logging_daily_article_moderation_perc = new Dygraph(
+    document.getElementById('fp_logging_daily_article_moderation_perc'),
+    "./fp_logging_daily_article_moderation_perc.csv",
+    {
+      ylabel: 'Articles commented/moderated (%)',
+      axisLabelFontSize: 12,
+      legend: 'always',
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+      stackedGraph: true,
       labelsSeparateLines: true,
       showRangeSelector: false,
       drawCallback: function(g, is_initial) {
