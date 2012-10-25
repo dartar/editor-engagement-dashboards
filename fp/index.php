@@ -91,11 +91,45 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_by_articl
 
 <!-- Unique articles moderated/commented ratio -->
 <h3>Proportion of unique articles moderated/commented (%)</h3>
-<p class="small">This plot represents the proportion of articles with at least one manual moderation action on a given data over the number of articles with at least one new comment on that 
-day. Note that moderation actions and new posts can happen on entirely distinct sets of articles</p>
+<p class="small" style="width:900px">This plot represents the proportion of articles with at least one manual moderation action on a given data over the number of articles with at least one new 
+comment on that day. Note that moderation actions and new posts can happen on entirely distinct sets of articles</p>
 <div id="fp_logging_daily_article_moderation_perc" style="width:900px; height:300px;"></div>
 <p class="small">Articles moderated vs commented (%): <a href="fp_logging_daily_article_moderation_perc.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_article_moderation_perc.csv')); ?></p>
+
+<!-- Daily posts moderated -->
+<h3>Proportion of daily posts moderated (%)</h3>
+<p class="small" style="width:900px">This plot shows the percentage of feedback posted on a given date that was moderated within 1 day, 1 week, 2 weeks, 1 month or to date. With the exception of 
+the <em>to date</em> series (marked as a dotted line), data subject to right-censorship is removed from the plot, as moderation can happen any time in the future.</p>
+<p class="small"><strong>Series:</strong>
+<input type=checkbox id="0" checked onClick="change(this,fp_logging_daily_moderation_perc)">
+<label for="0">1 day</label>
+<input type=checkbox id="1" checked onClick="change(this,fp_logging_daily_moderation_perc)">
+<label for="1">1 week</label>
+<input type=checkbox id="2" checked onClick="change(this,fp_logging_daily_moderation_perc)">
+<label for="2">2 weeks</label>
+<input type=checkbox id="3" checked onClick="change(this,fp_logging_daily_moderation_perc)">
+<label for="3">1 month</label>
+<input type=checkbox id="4" checked onClick="change(this,fp_logging_daily_moderation_perc)">
+<label for="4">to date</label>
+</p>
+<div id="fp_logging_daily_moderation_perc" style="width:900px; height:300px;"></div>
+<p class="small">Posts moderated (%): <a href="fp_logging_daily_moderation_perc.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_moderation_perc.csv')); ?></p>
+
+<!-- Moderation source -->
+<h3>Moderation actions by source (anonymous users)</h3>
+<p class="small" style="width:900px">This plot shows the daily number of moderation actions performed by anonymous users as a function of the interface they used.</p>
+<div id="fp_logging_daily_moderation_source_anon" style="width:900px; height:300px;"></div>
+<p class="small">Moderation source data: <a href="fp_logging_daily_moderation_source_anon.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_moderation_source_anon.csv')); ?></p>
+
+<!-- Moderation source -->
+<h3>Moderation actions by source (registered users)</h3>
+<p class="small" style="width:900px">This plot shows the daily number of moderation actions performed by registered users as a function of the interface they used.</p>
+<div id="fp_logging_daily_moderation_source_reg" style="width:900px; height:300px;"></div>
+<p class="small">Moderation source data: <a href="fp_logging_daily_moderation_source_reg.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_moderation_source_reg.csv')); ?></p>
 
 <!-- Unique users  -->
 <h3>Unique daily moderators by category</h3>
@@ -161,6 +195,58 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_auto.csv'
           text: "Enabled watchlist filter and reset CTAs"
         }
 	];
+
+  var labels_md = [
+        {
+          series: "to date",
+          x: "2012-07-03",
+          shortText: "A",
+          text: "AFTv5 deployed to 1% of English Wikipedia"
+        },
+        {
+          series: "to date",
+          x: "2012-07-05",
+          shortText: "B",
+          text: "AFTv5 deployed to 2% of English Wikipedia"
+        },
+        {
+          series: "to date",
+          x: "2012-07-10",
+          shortText: "C",
+          text: "AFTv5 deployed to 3% of English Wikipedia"
+        },
+        {
+          series: "to date",
+          x: "2012-07-17",
+          shortText: "D",
+          text: "AFTv5 deployed to 5% of English Wikipedia + CentralNotice announcement"
+        },
+     	{
+          series: "to date",
+          x: "2012-07-23",
+          shortText: "E",
+          text: "AFTv5 deployed to 10% of English Wikipedia"
+        },      
+        {
+          series: "to date",
+          x: "2012-07-30",
+          shortText: "F",
+          text: "Site-wide outage"
+        },
+        {
+          series: "to date",
+          x: "2012-08-14",
+          shortText: "G",
+          text: "Enabled watchlist filter and reset CTAs"
+        },
+        {
+          series: "to date",
+          x: "2012-09-07",
+          shortText: "H",
+          text: "Disabled self-moderation for feedback authors"
+        }
+	];
+
 
   fp_logging = new Dygraph(
     document.getElementById('fp_logging'),
@@ -396,8 +482,104 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_auto.csv'
       showRangeSelector: false,
       drawCallback: function(g, is_initial) {
             if (!is_initial) return;
-            g.setAnnotations(labels_g0);
+            g.setAnnotations(labels_md);
           }
+    }
+  );
+
+  fp_logging_daily_moderation_perc = new Dygraph(
+    document.getElementById('fp_logging_daily_moderation_perc'),
+    "./fp_logging_daily_moderation_perc.csv",
+    {
+      ylabel: 'Posts moderated (%)',
+      axisLabelFontSize: 12,
+      legend: 'always',
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+       colors: [
+	"#CC6666",
+	"#B1B17B", 
+	"#405774",
+	"#336644",
+	"#AABBCC"
+      ],
+      'to date': {
+          strokePattern: Dygraph.DOTTED_LINE,
+          strokeWidth: 3
+      },
+      visibility: [true, true, true, true, true],
+      stackedGraph: false,
+      labelsSeparateLines: true,
+      showRangeSelector: false,
+      drawCallback: function(g, is_initial) {
+            if (!is_initial) return;
+            g.setAnnotations(labels_md);
+          }
+    }
+  );
+
+  fp_logging_daily_moderation_source_anon = new Dygraph(
+    document.getElementById('fp_logging_daily_moderation_source_anon'),
+    "./fp_logging_daily_moderation_source_anon.csv",
+    {
+      ylabel: 'Moderation actions by source',
+      axisLabelFontSize: 12,
+      legend: 'always',
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+       colors: [
+	"#CC6666",
+	"#B1B17B", 
+	"#405774",
+	"#336644"
+      ],
+      visibility: [true, true, true, true],
+      stackedGraph: false,
+      labelsSeparateLines: true,
+      showRangeSelector: false
+    }
+  );
+
+  fp_logging_daily_moderation_source_reg = new Dygraph(
+    document.getElementById('fp_logging_daily_moderation_source_reg'),
+    "./fp_logging_daily_moderation_source_reg.csv",
+    {
+      ylabel: 'Moderation actions',
+      axisLabelFontSize: 12,
+      legend: 'always',
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+       colors: [
+	"#CC6666",
+	"#B1B17B", 
+	"#405774",
+	"#336644"
+      ],
+      visibility: [true, true, true, true],
+      stackedGraph: false,
+      labelsSeparateLines: true,
+      showRangeSelector: false
     }
   );
 
