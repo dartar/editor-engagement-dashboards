@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>PageCuration dashboard</title>
+<title>Page Curation dashboard</title>
 <link rel="stylesheet" type="text/css" href="../css/features.css" />
 <script type="text/javascript" src="../js/dygraph-combined.js"></script>
 </head>
 <body>
 <div id="wrapper">
-<h1>PageCuration dashboard</h1>
+<h1>Page Curation dashboard</h1>
 <p class="small">
 <strong>Hover</strong> over the graph to  display values for specific dates<br />
 <strong>Click and hold</strong> on the graph to zoom in on a specific date range<br />
@@ -17,23 +17,36 @@ Use the <strong>input box</strong> to adjust the moving average span
 
 <!-- Daily curation events -->
 <h3>Pages reviewed per day</h3>
+<p class="small" style="width:900px">
+New articles tagged, flagged for deletion, manually marked as reviewed or as unreviewed via the <a href="https://www.mediawiki.org/wiki/Page_Curation">Page Curation</a> interface. As of 09/20/12, 
+any curation action automatically marks a page as reviewed (autoreviewed).
+</p>
 <div class="loglin" id="pc_logging_actions_daily" style="width:900px; height:300px;"></div>
 <p class="small">Daily curation actions by type data: <a href="pc_logging_actions_daily.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_actions_daily.csv')); ?></p>
 
 <!-- Daily events % -->
 <h3>Pages reviewed per day (%)</h3>
+<p class="small" style="width:900px">
+Breakdown of daily page curation activity. As of 09/20/12, any curation action automatically marks a page as reviewed (autoreviewed).
+</p>
 <div id="pc_logging_actions_daily_perc" style="width:900px; height:300px;"></div>
 <p class="small">Daily curation action data: <a href="pc_logging_actions_daily_perc.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_actions_daily_perc.csv')); ?></p>
 
 <!-- Cumulative events -->
+<p class="small" style="width:900px">
+Cumulative number of pages reviewed via Page Curation, by curation action. As of 09/20/12, any curation action automatically marks a page as reviewed (autoreviewed).
+</p>
 <h3>Cumulative pages reviewed</h3>
 <div id="pc_logging_actions_cum" style="width:900px; height:300px;"></div>
-<p class="small">Cumulative moderation action data: <a href="pc_logging_actions_cum.csv">csv</a><br />
+<p class="small">Cumulative curation action data: <a href="pc_logging_actions_cum.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_actions_cum.csv')); ?></p>
 
 <!-- Total events % -->
+<p class="small" style="width:900px">
+Cumulative page curation activity, by curation action. As of 09/20/12, any curation action automatically marks a page as reviewed (autoreviewed).
+</p>
 <h3>Cumulative pages reviewed (%)</h3>
 <div id="pc_logging_actions_cum_perc" style="width:900px; height:300px;"></div>
 <p class="small">Cumulative curation action (percentage) data: <a href="pc_logging_actions_cum_perc.csv">csv</a><br />
@@ -41,30 +54,49 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_actions_c
 
 <!-- Unique daily reviewers -->
 <h3>Unique daily reviewers</h3>
+<p class="small" style="width:900px">
+Unique daily users of the Page Curation interface, by curation action. As of 09/20/12, any curation action automatically marks a page as reviewed (autoreviewed).
+</p>
 <div class="loglin" id="pc_logging_users_actions_daily" style="width:900px; height:300px;"></div>
 <p class="small">Daily unique reviewers per action data: <a href="pc_logging_users_actions_daily.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_users_actions_daily.csv')); ?></p>
 
 <!-- Daily patrol vs review events -->
 <h3>Pages patrolled vs reviewed per day</h3>
+<p class="small" style="width:900px">
+Comparison of pages reviewed via the Page Curation interface and via the legacy New Page Patrol interface. As of 09/20/12, any curation action automatically marks a page as 
+reviewed (autoreviewed).
+</p>
 <div class="loglin" id="pc_logging_actions_daily_comp" style="width:900px; height:300px;"></div>
 <p class="small">Daily patrol vs review action data: <a href="pc_logging_actions_daily_comp.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_actions_daily_comp.csv')); ?></p>
 
 <!-- Daily patrollers vs reviewers -->
 <h3>Unique daily patrollers vs reviewers</h3>
+<p class="small" style="width:900px">
+Comparison of unique daily users of the Page Curation interface and daily users of the legacy New Page Patrol interface. As of 09/20/12, any curation action automatically marks a page as 
+reviewed (autoreviewed).
+</p>
 <div class="loglin" id="pc_logging_users_actions_daily_comp" style="width:900px; height:300px;"></div>
 <p class="small">Unique daily patroller vs reviewers data: <a href="pc_logging_users_actions_daily_comp.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_users_actions_daily_comp.csv')); ?></p>
 
 <!-- Daily patrol vs review events (%) -->
 <h3>Pages patrolled vs reviewed per day (%)</h3>
+<p class="small" style="width:900px">
+Percentage of pages reviewed via the Page Curation interface and via the legacy New Page Patrol interface. As of 09/20/12, any curation action automatically marks a page as 
+reviewed (autoreviewed).
+</p>
 <div class="loglin" id="pc_logging_actions_daily_comp_perc" style="width:900px; height:300px;"></div>
 <p class="small">Daily patrol vs review action data: <a href="pc_logging_actions_daily_comp_perc.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_actions_daily_comp_perc.csv')); ?></p>
 
 <!-- Daily patrollers vs reviewers (%) -->
 <h3>Unique daily patrollers vs reviewers (%)</h3>
+<p class="small" style="width:900px">
+Percentage of unique daily users of the Page Curation interface and daily users of the legacy New Page Patrol interface. As of 09/20/12, any curation action automatically marks a page as
+reviewed (autoreviewed).
+</p>
 <div class="loglin" id="pc_logging_users_actions_daily_comp_perc" style="width:900px; height:300px;"></div>
 <p class="small">Unique daily patroller vs reviewers data: <a href="pc_logging_users_actions_daily_comp_perc.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./pc_logging_users_actions_daily_comp_perc.csv')); ?></p>
