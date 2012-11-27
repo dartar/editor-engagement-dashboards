@@ -18,6 +18,7 @@ Use the <strong>input box</strong> to adjust the moving average span
 <h3>New accounts per day</h3>
 <div class="plot" id="gd"></div>
 <p class="small">Daily registration data: <a href="reg2_daily.csv">csv</a><br />
+Data available since 2010-01-01<br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_daily.csv')); ?> (plot refreshed daily)</p>
 
 <h3>New accounts per hour, year to year comparison</h3>
@@ -53,7 +54,7 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_combo.csv')); ?
 Data available since 2011-07-25<br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_rate_combo.csv')); ?> (plot refreshed daily)</p>
 
-<h3>Daily new and active accounts, year-to-year comparison (%)</h3>
+<h3>Daily new and active accounts, year-to-year change (%)</h3>
 <div class="plot" id="g3"></div>
 <p class="small">y2y new account data: <a href="reg2_alive_y2y.csv">csv</a><br />
 Data available since 2011-07-25<br />
@@ -62,7 +63,7 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_alive_y2y.csv')
 <h3>New accounts by daily traffic</h3>
 <div class="plot" id="g4"></div>
 <p class="small">New account by traffic data: <a href="reg2_new_by_traffic.csv">csv</a><br />
-Data available since 2011-07-25<br />
+Data available since 2010-01-01<br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_new_by_traffic.csv')); ?> </p>
 
 <script type="text/javascript">
