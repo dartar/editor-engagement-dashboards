@@ -15,6 +15,11 @@ Use the <strong>input box</strong> to adjust the moving average span
 </p>
 <p class="small">Data released under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license</p>
 
+<h3>New accounts per day</h3>
+<div class="plot" id="gd"></div>
+<p class="small">Daily registration data: <a href="reg2_daily.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_daily.csv')); ?> (plot refreshed daily)</p>
+
 <h3>New accounts per hour, year to year comparison</h3>
 <p class="small"><strong>Show Series:</strong>
 <input type=checkbox id="0" checked onClick="change(this)">
@@ -48,21 +53,66 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_combo.csv')); ?
 Data available since 2011-07-25<br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_rate_combo.csv')); ?> (plot refreshed daily)</p>
 
+<h3>Daily new and active accounts, year-to-year comparison (%)</h3>
+<div class="plot" id="g3"></div>
+<p class="small">y2y new account data: <a href="reg2_alive_y2y.csv">csv</a><br />
+Data available since 2011-07-25<br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_alive_y2y.csv')); ?> (plot refreshed daily)</p>
+
+<h3>New accounts by daily traffic</h3>
+<div class="plot" id="g4"></div>
+<p class="small">New account by traffic data: <a href="reg2_new_by_traffic.csv">csv</a><br />
+Data available since 2011-07-25<br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_new_by_traffic.csv')); ?> </p>
+
 <script type="text/javascript">
    var labels = [
         {
-          series: "editing accounts",
+          series: "new accounts",
           x: "2011-12-25",
           shortText: "A",
           text: "Christmas"
         },
         {
-          series: "editing accounts",
+          series: "new accounts",
           x: "2012-01-18",
           shortText: "B",
           text: "SOPA blackout"
+        },
+       {
+          series: "new accounts",
+          x: "2012-10-30",
+          shortText: "C",
+          text: "Traffic surge for Hurricane Sandy"
+        },
+       {
+          series: "new accounts",
+          x: "2012-11-16",
+          shortText: "D",
+          text: "Fundraiser test"
         }
        ]; 
+
+   gd = new Dygraph(
+    document.getElementById('gd'),
+    "./reg2_daily.csv",
+    {
+      ylabel: 'Daily registrations',
+      legend: 'always',
+      axisLabelFontSize: 12,
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+      labelsSeparateLines: true,
+      showRangeSelector: false 
+    }
+  );
 
   g0 = new Dygraph(
     document.getElementById('g0'),
@@ -121,7 +171,7 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_rate_combo.csv'
       axisLabelFontSize: 12,
       rollPeriod: 1,
       showRoller: true,
-      colors: ["rgba(0,0,150,0.8)", "rgba(0,150,0,0.8)"],
+      colors: ["rgba(0,0,150,0.8)","rgba(0,150,0,0.8)"],
       labelsKMB: true,
       labelsDivWidth: 200,
       labelsDivStyles: {
@@ -137,6 +187,54 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_rate_combo.csv'
           }
     }
   );
+
+  g3 = new Dygraph(
+    document.getElementById('g3'),
+    "./reg2_alive_y2y.csv",
+    {
+      ylabel: 'Year-to-year variation (%)',
+      legend: 'always',
+      axisLabelFontSize: 12,
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      colors: ["rgba(0,0,150,0.8)","rgba(50,50,50,0.8)"],
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+      labelsSeparateLines: true,
+      showRangeSelector: false,
+      drawCallback: function(g, is_initial) {
+            if (!is_initial) return;
+            g.setAnnotations(labels);
+          }
+    }
+  );
+
+g4 = new Dygraph(
+    document.getElementById('g4'),
+    "./reg2_new_by_traffic.csv",
+    {
+      ylabel: 'Registrations per page view',
+      legend: 'always',
+      axisLabelFontSize: 12,
+      rollPeriod: 24,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+      labelsSeparateLines: true,
+      showRangeSelector: false
+    }
+  );
+
  setStatus();
 
  function setStatus() {
