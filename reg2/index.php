@@ -62,9 +62,15 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_alive_y2y.csv')
 
 <h3>New accounts by daily traffic</h3>
 <div class="plot" id="g4"></div>
-<p class="small">New account by traffic data: <a href="reg2_new_by_traffic.csv">csv</a><br />
+<p class="small">New accounts by page view data: <a href="reg2_new_by_traffic.csv">csv</a><br />
 Data available since 2010-01-01<br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_new_by_traffic.csv')); ?> </p>
+
+<h3>New accounts vs page views (x100,000)</h3>
+<div class="plot" id="g5"></div>
+<p class="small">New accounts vs page view data: <a href="reg2_new_by_traffic2.csv">csv</a><br />
+Data available since 2010-01-01<br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_new_by_traffic2.csv')); ?> </p>
 
 <script type="text/javascript">
    var labels = [
@@ -222,7 +228,28 @@ g4 = new Dygraph(
       ylabel: 'Registrations per page view',
       legend: 'always',
       axisLabelFontSize: 12,
-      rollPeriod: 24,
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+      labelsSeparateLines: true,
+      showRangeSelector: false
+    }
+  );
+
+g5 = new Dygraph(
+    document.getElementById('g5'),
+    "./reg2_new_by_traffic2.csv",
+    {
+      ylabel: 'Registrations, page view (100K)',
+      legend: 'always',
+      axisLabelFontSize: 12,
+      rollPeriod: 1,
       showRoller: true,
       labelsKMB: true,
       labelsDivWidth: 200,
