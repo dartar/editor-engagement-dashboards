@@ -76,28 +76,46 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_new_by_traffic2
    var labels = [
         {
           series: "new accounts",
-          x: "2011-12-25",
+          x: "2010-12-25",
           shortText: "A",
-          text: "Christmas"
+          text: "Christmas 2010"
+        },
+        {
+          series: "new accounts",
+          x: "2011-12-25",
+          shortText: "B",
+          text: "Christmas 2011"
         },
         {
           series: "new accounts",
           x: "2012-01-18",
-          shortText: "B",
+          shortText: "C",
           text: "SOPA blackout"
         },
        {
           series: "new accounts",
           x: "2012-10-30",
-          shortText: "C",
+          shortText: "D",
           text: "Traffic surge for Hurricane Sandy"
         },
        {
           series: "new accounts",
           x: "2012-11-16",
-          shortText: "D",
-          text: "Fundraiser test"
-        }
+          shortText: "E",
+          text: "Fundraiser 2012 US test"
+        },
+       {
+          series: "new accounts",
+          x: "2012-11-27",
+          shortText: "F",
+          text: "Fundraiser 2012 launch"
+        },
+	{
+          series: "new accounts",
+          x: "2012-12-25",
+          shortText: "G",
+          text: "Christmas 2012"
+        },
        ]; 
 
    gd = new Dygraph(
@@ -117,8 +135,12 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg2_new_by_traffic2
          'text-align': 'left'
       },
       labelsSeparateLines: true,
-      showRangeSelector: false 
-    }
+      showRangeSelector: false, 
+      drawCallback: function(g, is_initial) {
+            if (!is_initial) return;
+            g.setAnnotations(labels);
+          }
+     }
   );
 
   g0 = new Dygraph(
@@ -259,7 +281,11 @@ g5 = new Dygraph(
          'text-align': 'left'
       },
       labelsSeparateLines: true,
-      showRangeSelector: false
+      showRangeSelector: false,
+      drawCallback: function(g, is_initial) {
+            if (!is_initial) return;
+            g.setAnnotations(labels);
+          }
     }
   );
 

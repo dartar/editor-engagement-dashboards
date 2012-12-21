@@ -98,7 +98,7 @@ comment on that day. Note that moderation actions and new posts can happen on en
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_article_moderation_perc.csv')); ?></p>
 
 <!-- Daily posts moderated -->
-<h3>Proportion of daily posts moderated (%)</h3>
+<h3 id="pdpm">Proportion of daily posts moderated (%)</h3>
 <p class="small" style="width:900px">This plot shows the percentage of feedback posted on a given date that was moderated within 1 day, 1 week, 2 weeks, 1 month or to date. With the exception of 
 the <em>to date</em> series (marked as a dotted line), data subject to right-censorship is removed from the plot, as moderation can happen any time in the future.</p>
 <p class="small"><strong>Series:</strong>
@@ -132,7 +132,7 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_mod
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_daily_moderation_source_reg.csv')); ?></p>
 
 <!-- Unique users  -->
-<h3>Unique daily moderators by category</h3>
+<h3 id="udm">Unique daily moderators by category</h3>
 <div id="fp_logging_by_user_type_unique" style="width:900px; height:300px;"></div>
 <p class="small">Unique daily moderators by category data: <a href="fp_logging_by_user_type_unique.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./fp_logging_by_user_type_unique.csv')); ?></p>

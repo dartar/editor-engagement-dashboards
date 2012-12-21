@@ -21,8 +21,8 @@ Use the <strong>input box</strong> to adjust the moving average span
 <strong class="boxed">A</strong>: 3k articles sample<br />
 <strong class="boxed">B</strong>: 100k articles ramp-up<br />
 <strong class="boxed">C</strong>: global deployment to enwiki</p>
-<p class="small">Daily article ratings data: <a href="d.csv">csv</a><br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d.csv')); ?></p>
+<p class="small">Daily article ratings data: <a href="aft.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft.csv')); ?></p>
 <script type="text/javascript">
    var labels = [
         {
@@ -47,7 +47,7 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d.csv')); ?></p>
 
   g3 = new Dygraph(
     document.getElementById('graphdiv'),
-    "./d.csv",
+    "./aft.csv",
     {
       ylabel: 'Unique ratings',
       legend: 'always',
