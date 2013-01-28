@@ -11,7 +11,7 @@ echo <<<EOF
 <body>
 <div id="header_fixed">
 <h1>Article Feedback v5 dashboard (DE)</h1>
-<h2 class="toggle"><strong>articles:</strong> <a href="../?c=">[all articles]</a> [single articles]</h2>
+<h2 class="toggle"><strong>articles:</strong> <a href="../">[all articles]</a> [single articles]</h2>
 <form method="GET">
 <fieldset><legend>Article Title</legend>
 <input type="text" name="p" id="title" value="Eichhörnchen" /> <input type="submit" />
@@ -99,7 +99,7 @@ else
 <body>
 <div id="header_fixed">
 <h1>Article Feedback v5 dashboard (DE)</h1>
-<h2 class="toggle"><strong>articles:</strong> <a href="../?c=">[all articles]</a> [single articles]</h2>
+<h2 class="toggle"><strong>articles:</strong> <a href="../">[all articles]</a> [single articles]</h2>
 <form method="GET">
 <fieldset><legend>Article Title</legend>
 <input type="text" name="p" id="title" value="$page_title" />

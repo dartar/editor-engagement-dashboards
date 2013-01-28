@@ -21,32 +21,32 @@ Use the <strong>input box</strong> to adjust the moving average span
 <!-- Daily posts -->
 <h3>Daily feedback volume (aggregate)</h3>
 <div id="graphdiv_daily" style="width:900px; height:300px;"></div>
-<p class="small">Daily feedback volume data: <a href="aft5<?php echo $c; ?>_daily.csv">csv</a><br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'_daily.csv')); ?></p>
+<p class="small">Daily feedback volume data: <a href="aft5_daily.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5_daily.csv')); ?></p>
 
 <!-- Cumulative posts (aggregate) -->
 <h3>Cumulative feedback volume (aggregate)</h3>
 <div id="graphdiv_cum" style="width:900px; height:300px;"></div>
-<p class="small">Cumulative feedback volume data: <a href="aft5<?php echo $c; ?>_cum.csv">csv</a><br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'_cum.csv')); ?></p>
+<p class="small">Cumulative feedback volume data: <a href="aft5_cum.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5_cum.csv')); ?></p>
 
 <!-- Unique articles commented -->
 <h3>Daily number of unique articles commented</h3>
 <div id="graphdiv_daily_unique_articles" style="width:900px; height:300px;"></div>
-<p class="small">Unique articles commented data: <a href="aft5<?php echo $c; ?>_daily_unique_articles.csv">csv</a><br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'_daily_unique_articles.csv')); ?></p>
+<p class="small">Unique articles commented data: <a href="aft5_daily_unique_articles.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5_daily_unique_articles.csv')); ?></p>
 
 <!-- Feedback by user category -->
 <h3>Daily posts by user category</h3>
 <div id="graphdiv_daily_by_usertype" style="width:900px; height:300px;"></div>
-<p class="small">Posts by user category data: <a href="aft5<?php echo $c; ?>_daily_by_usertype.csv">csv</a><br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'aft5_daily_by_usertype.csv')); ?></p>
+<p class="small">Posts by user category data: <a href="aft5_daily_by_usertype.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5_daily_by_usertype.csv')); ?></p>
 
 <!-- Feedback by user category (%) -->
 <h3>Daily posts by user category (%)</h3>
 <div id="graphdiv_daily_by_usertype_perc" style="width:900px; height:300px;"></div>
-<p class="small">Posts by user category (%) data: <a href="aft5<?php echo $c; ?>_daily_by_usertype_perc.csv">csv</a><br />
-Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5'.$c.'aft5_daily_by_usertype_perc.csv')); ?></p>
+<p class="small">Posts by user category (%) data: <a href="aft5_daily_by_usertype_perc.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./aft5_daily_by_usertype_perc.csv')); ?></p>
 
 <script type="text/javascript">
   g_cum = new Dygraph(

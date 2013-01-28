@@ -15,10 +15,8 @@
 	</li>
 	<li>Article Feedback (v5)<br />
 		<ul>
-			<li><a href="./aft5/">dashboard</a></li>
-			<li><a href="./aft5/stream">feedback stream</a></li>
-			<li><a href="./aft5/articles/?p=Barack+Obama">feedback volume per article</a></li>
-			<li><a href="./aft5/dumps">data dumps</a></li>
+			<li><a href="./aft5/">dashboard</a> <span class="smallnote">[en] <a href="./de/aft5/">[de]</a></span></li>
+			<li><a href="./aft5/articles/?p=Barack+Obama">feedback volume per article</a> <span class="smallnote">[en] <a href="./de/aft5/articles/?p=Eichhörnchen">[de]</a></span></li>
 		</ul>
 	</li>
 	<li>Article Feedback (v4)<br />
@@ -26,7 +24,12 @@
 			<li><a href="./aft/">dashboard</a></li>
 			<li><a href="./aft2/">feedback volume per article</a></li>
 			<li><a href="./aft3/">most frequently rated articles</a></li>
-			<li> <a href="http://dumps.wikimedia.org/other/articlefeedback/">data dumps</a>
+			<li><a href="http://dumps.wikimedia.org/other/articlefeedback/">data dumps</a>
+		</ul>
+	</li>
+        <li>Revision tags<br />
+                <ul>
+                       	<li><a href="./rt/">dashboard</a></li>
 		</ul>
 	</li>
 	<li>MoodBar<br />
