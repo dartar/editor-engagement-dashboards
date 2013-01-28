@@ -33,13 +33,14 @@ rt_daily = new Dygraph(
       rollPeriod: 1,
       showRoller: true,
       labelsKMB: true,
-      labelsDivWidth: 120,
+      labelsDivWidth: 150,
       labelsDivStyles: {
         'backgroundColor': 'transparent',
          'font-weight': 300,
          'text-align': 'left'
       },
        colors: [
+	"#6666CC",
         "#CC6666",
 	"#66CC66"
       ],
