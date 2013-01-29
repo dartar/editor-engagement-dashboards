@@ -59,7 +59,7 @@
 <ul>
         <li>Article Feedback moderation<br />
                 <ul>
-                       	<li><a href="./fp/">dashboard</a></li>
+                       	<li><a href="./fp/">dashboard</a> <span class="smallnote">[en] <a href="./de/fp/">[de]</a></span></li></li>
 		</ul>
 	</li>
         <li>Page Curation<br />
