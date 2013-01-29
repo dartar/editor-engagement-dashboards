@@ -13,7 +13,7 @@
 <strong>Double click</strong> to reset the default date range<br />
 Use the <strong>input box</strong> to adjust the moving average span
 </p>
-<p class="small">Graphs refreshed hourly. Data released under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license</p>
+<p class="small">Graphs refreshed daily. Data released under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license</p>
 
 <!-- Daily events -->
 <h3>Daily moderation actions</h3>
