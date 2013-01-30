@@ -96,29 +96,47 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_rate_combo.csv'
         },
 	{
           series: "new accounts",
-          x: "2012-12-25",
+          x: "2012-12-13",
           shortText: "G",
+          text: "GettingStarted launch"
+        },
+	{
+          series: "new accounts",
+          x: "2012-12-25",
+          shortText: "H",
           text: "Christmas 2012"
         },
 	{
           series: "new accounts",
           x: "2012-12-27",
-          shortText: "H",
+          shortText: "I",
           text: "Thank You campaign launch"
         },
         {
           series: "new accounts",
           x: "2013-01-01",
-          shortText: "I",
+          shortText: "J",
           text: "Thank You campaign end"
         },
         {
           series: "new accounts",
-          x: "2012-01-25",
-          shortText: "J",
+          x: "2013-01-25",
+          shortText: "K",
           text: "GettingStarted split test launch"
-        }
-       ]; 
+        },
+	{
+          series: "live accounts",
+          x: "2012-12-13",
+          shortText: "G",
+          text: "GettingStarted launch"
+        },
+	{
+          series: "live accounts",
+          x: "2013-01-25",
+          shortText: "K",
+          text: "GettingStarted split test launch"
+        }       
+]; 
 
    gd = new Dygraph(
     document.getElementById('gd'),
