@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="wrapper">
-<h1>New user registrations</h1>
+<h1>New user registrations (EN)</h1>
 <p class="small">
 <strong>Hover</strong> over the graph to  display values for specific dates<br />
 <strong>Click and hold</strong> on the graph to zoom in on a specific date range<br />
@@ -20,6 +20,12 @@ Use the <strong>input box</strong> to adjust the moving average span
 <p class="small">Daily registration data: <a href="reg3_daily.csv">csv</a><br />
 Data available since 2009-01-01<br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_daily.csv')); ?> (plot refreshed daily)</p>
+
+<h3 id="mobile">New mobile account registrations per day</h3>
+<p class="small">New users registered on mobile devices.</p>
+<div class="plot" id="gd_mobile"></div>
+<p class="small">Daily mobile registration data: <a href="reg3_mobile_daily.csv">csv</a><br />
+Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_mobile_daily.csv')); ?> (plot refreshed daily)</p>
 
 <h3>New accounts per hour, year to year comparison</h3>
 <p class="small"><strong>Show Series:</strong>
@@ -125,6 +131,18 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_rate_combo.csv'
           text: "GettingStarted split test launch"
         },
 	{
+          series: "new accounts",
+          x: "2013-01-31",
+          shortText: "L",
+          text: "GettingStarted split test end"
+        },
+	{
+          series: "new accounts",
+          x: "2013-02-12",
+          shortText: "M",
+          text: "Mobile account registrations launch"
+        },
+	{
           series: "live accounts",
           x: "2012-12-13",
           shortText: "G",
@@ -134,8 +152,20 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_rate_combo.csv'
           series: "live accounts",
           x: "2013-01-25",
           shortText: "K",
-          text: "GettingStarted split test launch"
-        }       
+          text: "GettingStarted split test (OB2) launch"
+        },
+        {
+          series: "live accounts",
+          x: "2013-01-31",
+          shortText: "L",
+          text: "GettingStarted split test (OB2) end"
+        },
+        {
+          series: "live accounts",
+          x: "2013-02-12",
+          shortText: "M",
+          text: "Mobile account registrations launch"
+        }
 ]; 
 
    gd = new Dygraph(
@@ -154,6 +184,34 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_rate_combo.csv'
          'font-weight': 300,
          'text-align': 'left'
       },
+      labelsSeparateLines: true,
+      showRangeSelector: false, 
+      drawCallback: function(g, is_initial) {
+            if (!is_initial) return;
+            g.setAnnotations(labels);
+          }
+     }
+  );
+
+   gd_mobile = new Dygraph(
+    document.getElementById('gd_mobile'),
+    "./reg3_mobile_daily.csv",
+    {
+      ylabel: 'Daily registrations',
+      legend: 'always',
+      axisLabelFontSize: 12,
+      rollPeriod: 1,
+      showRoller: true,
+      labelsKMB: true,
+      labelsDivWidth: 200,
+      labelsDivStyles: {
+        'backgroundColor': 'transparent',
+         'font-weight': 300,
+         'text-align': 'left'
+      },
+      colors: [
+	"#CC6666",
+	"#DD9999" ],
       labelsSeparateLines: true,
       showRangeSelector: false, 
       drawCallback: function(g, is_initial) {

@@ -23,6 +23,21 @@ Use the <strong>input box</strong> to adjust the moving average span
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./rt_daily.csv')); ?></p>
 
 <script type="text/javascript">
+var labels = [
+        {
+          series: "getting started",
+          x: "2013-01-24",
+          shortText: "A",
+          text: "Split test start"
+        },
+         {
+          series: "getting started",
+          x: "2013-01-31",
+          shortText: "B",
+          text: "Split test end"
+        }
+];
+
 rt_daily = new Dygraph(
     document.getElementById('rt_daily'),
     "./rt_daily.csv",
@@ -49,7 +64,7 @@ rt_daily = new Dygraph(
       showRangeSelector: false,
       drawCallback: function(g, is_initial) {
             if (!is_initial) return;
-            g.setAnnotations(labels_pc);
+            g.setAnnotations(labels);
           }
     }
   );

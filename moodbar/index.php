@@ -109,6 +109,12 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d_c50plus.csv')); ?>
           x: "2012-06-29",
           shortText: "E",
           text: "MoodBar re-enabled"
+        },
+       {
+          series: "posts",
+          x: "2013-01-31",
+          shortText: "F",
+          text: "MoodBar tooltip disabled"
         }
        ];
 
@@ -142,6 +148,12 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d_c50plus.csv')); ?>
           x: "2012-06-29",
           shortText: "E",
           text: "MoodBar re-enabled"
+        },
+       {
+          series: "% of moodbar users over accounts created",
+          x: "2013-01-31",
+          shortText: "F",
+          text: "MoodBar tooltip disabled"
         }
    ];
 
@@ -193,7 +205,13 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d_c50plus.csv')); ?>
           x: "2012-06-29",
           shortText: "H",
           text: "MoodBar re-enabled"
-        }
+        },
+       {
+          series: "posts",
+          x: "2013-01-31",
+          shortText: "I",
+          text: "MoodBar tooltip disabled"
+        } 
       ];
 
    var labels_g0r = [
@@ -253,7 +271,13 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./d_c50plus.csv')); ?>
           x: "2012-06-29",
           shortText: "H",
           text: "MoodBar re-enabled"
-        }
+        },
+       {
+          series: "happy",
+          x: "2013-01-31",
+          shortText: "I",
+          text: "MoodBar tooltip disabled"
+        } 
       ];
 
   g0 = new Dygraph(
