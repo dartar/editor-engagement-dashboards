@@ -17,7 +17,7 @@ Use the <strong>input box</strong> to adjust the moving average span
 
 
 <!-- Daily events by group -->
-<h3>Daily notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Groups">group</h3>
+<h3>Daily notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Groups">group</a></h3>
 <div id="echo_group" style="width:900px; height:300px;"></div>
 <p class="small">Data: <a href="echo_group.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_group.csv')); ?></p>
