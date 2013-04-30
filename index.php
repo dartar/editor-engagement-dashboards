@@ -27,6 +27,11 @@
 			<li><a href="http://dumps.wikimedia.org/other/articlefeedback/">data dumps</a>
 		</ul>
 	</li>
+        <li>Notifications (Echo)<br />
+                <ul>
+                        <li><a href="./en/echo/">dashboard</a> <span class="smallnote">[en] <a href="./mw/echo/">[mw]</a></span></li>
+                </ul>
+        </li>
         <li>Revision tags<br />
                 <ul>
                        	<li><a href="./rt/">dashboard</a></li>

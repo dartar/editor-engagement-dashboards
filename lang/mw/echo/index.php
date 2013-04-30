@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>Echo notifications dashboard</title>
+<title>Echo notifications dashboard (MW)</title>
 <link rel="stylesheet" type="text/css" href="../css/features.css" />
 <script type="text/javascript" src="../js/dygraph-combined.js"></script>
 </head>
 <body>
 <div id="wrapper">
-<h1>Echo notifications dashboard</h1>
+<h1>Echo notifications dashboard (MW)</h1>
 <p class="small">
 <strong>Hover</strong> over the graph to  display values for specific dates<br />
 <strong>Click and hold</strong> on the graph to zoom in on a specific date range<br />
@@ -16,33 +16,33 @@ Use the <strong>input box</strong> to adjust the moving average span
 <p class="small">Graphs refreshed hourly. Data released under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a> license</p>
 
 
-<!-- Daily events by group -->
-<h3>Daily notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Groups">group</a></h3>
+<!-- Hourly events by group -->
+<h3>Hourly notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Groups">group</a></h3>
 <div id="echo_group" style="width:900px; height:300px;"></div>
 <p class="small">Data: <a href="echo_group.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_group.csv')); ?></p>
 
-<!-- Daily events by group % -->
-<h3>Daily notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Groups">group</a> (percentage)</h3>
+<!-- Hourly events by group % -->
+<h3>Hourly notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Groups">group</a> (percentage)</h3>
 <div id="echo_group_perc" style="width:900px; height:300px;"></div>
 <p class="small">Data: <a href="echo_group_perc.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_group_perc.csv')); ?></p>
 
-<!-- Daily events by category -->
-<h3>Daily notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Categories">category</a></h3>
+<!-- Hourly events by category -->
+<h3>Hourly notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Categories">category</a></h3>
 <div id="echo_category" style="width:900px; height:300px;"></div>
 <p class="small">Data: <a href="echo_category.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_category.csv')); ?></p>
 
 
-<!-- Daily events by category % -->
-<h3>Daily notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Categories">category</a> (percentage)</h3>
+<!-- Hourly events by category % -->
+<h3>Hourly notifications by <a href="https://www.mediawiki.org/wiki/Echo/Feature_requirements#Notification_Categories">category</a> (percentage)</h3>
 <div id="echo_category_perc" style="width:900px; height:300px;"></div>
 <p class="small">Data: <a href="echo_category_perc.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_category_perc.csv')); ?></p>
 
-<!-- Daily events by user group -->
-<h3>Daily notifications by user group</h3>
+<!-- Hourly events by user group -->
+<h3>Hourly notifications by user group</h3>
 <div id="echo_user" style="width:900px; height:300px;"></div>
 <p class="small">Data: <a href="echo_user.csv">csv</a><br />
 Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_user.csv')); ?></p>
@@ -87,10 +87,10 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./echo_user.csv')); ?>
     document.getElementById('echo_group_perc'),
     "./echo_group_perc.csv",
     {
-      ylabel:'% of daily notifications',
+      ylabel:'% of hourly notifications',
       axisLabelFontSize: 12,
       legend: 'always',
-      rollPeriod: 7,
+      rollPeriod: 24,
       showRoller: true,
       labelsKMB: true,
       labelsDivWidth: 200,
@@ -159,10 +159,10 @@ echo_category_perc = new Dygraph(
     document.getElementById('echo_category_perc'),
     "./echo_category_perc.csv",
     {
-      ylabel:'% of daily notifications',
+      ylabel:'% of hourly notifications',
       axisLabelFontSize: 12,
       legend: 'always',
-      rollPeriod: 7,
+      rollPeriod: 24,
       showRoller: true,
       labelsKMB: true,
       labelsDivWidth: 200,
