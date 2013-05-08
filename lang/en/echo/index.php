@@ -174,7 +174,7 @@ echo_category_perc = new Dygraph(
       ylabel:'% of daily notifications',
       axisLabelFontSize: 12,
       legend: 'always',
-      rollPeriod: 24,
+      rollPeriod: 1,
       showRoller: true,
       labelsKMB: true,
       labelsDivWidth: 200,
