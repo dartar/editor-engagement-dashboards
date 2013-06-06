@@ -165,6 +165,12 @@ Last updated: <?php echo date("Y-m-d H:i:s T", filemtime('./reg3_rate_combo.csv'
           x: "2013-02-12",
           shortText: "M",
           text: "Mobile account registrations launch"
+        }, 
+        {
+          series: "new accounts",
+          x: "2013-05-29",
+          shortText: "N",
+          text: "Launch of new signup and login form"
         }
 ]; 
 

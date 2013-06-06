@@ -59,7 +59,7 @@ rt_daily = new Dygraph(
         "#CC6666",
 	"#66CC66"
       ],
-      logscale: false,
+      logscale: true,
       labelsSeparateLines: true,
       showRangeSelector: false,
       drawCallback: function(g, is_initial) {
